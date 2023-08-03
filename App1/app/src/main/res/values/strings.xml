@@ -6,4 +6,6 @@
     <string name="tx_password">Password</string>
     <string name="hint_password">Enter password</string>
     <string name="btn_sign_in">Sign In</string>
+    <string name="btn_increment">Increment</string>
+    <string name="btn_decrement">Decrement</string>
 </resources>

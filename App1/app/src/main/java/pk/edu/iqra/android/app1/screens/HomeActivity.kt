@@ -1,14 +1,14 @@
-package pk.edu.iqra.android.app1
+package pk.edu.iqra.android.app1.screens
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import kotlin.math.log
+import pk.edu.iqra.android.app1.R
+import pk.edu.iqra.android.app1.models.UserProfile
 
 class HomeActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var edWelcome:TextView
@@ -18,8 +18,12 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
 
         edWelcome = findViewById(R.id.txWelcome)
 
-        val email = intent.extras?.getString("email")
-        edWelcome.text = "Welcome ${email?.split("@")?.get(0)}"
+        //val email = intent.extras?.getString("email")
+        //edWelcome.text = "Welcome ${email?.split("@")?.get(0)}"
+
+        val userProfile = intent.extras?.getSerializable("profile") as UserProfile
+
+        edWelcome.text = "Welcome ${userProfile.name}"
 
         /*findViewById<Button>(R.id.btnLogout).setOnClickListener {
             logout()
@@ -48,7 +52,7 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
             .setMessage("Are you sure? you want to logout?")
             .setCancelable(false)
             .setPositiveButton("Yes") { dialog, i ->
-                Intent(this@HomeActivity,MainActivity::class.java).apply {
+                Intent(this@HomeActivity, MainActivity::class.java).apply {
                     startActivity(this)
                     finish()
                 }

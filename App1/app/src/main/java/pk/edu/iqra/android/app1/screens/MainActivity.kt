@@ -1,12 +1,16 @@
-package pk.edu.iqra.android.app1
+package pk.edu.iqra.android.app1.screens
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.UserHandle
+import android.view.View
 import android.widget.Toast
 import pk.edu.iqra.android.app1.databinding.ActivityMainBinding
+import pk.edu.iqra.android.app1.models.UserProfile
+import pk.edu.iqra.android.app1.utils.isEmail
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),View.OnClickListener {
     /*lateinit var edEmailAddress:EditText
     lateinit var edPassword:EditText
     lateinit var btnSignIn:Button*/
@@ -31,13 +35,23 @@ class MainActivity : AppCompatActivity() {
             val password = binding.edPassword.text.trim().toString()
 
             if(email.isNotEmpty() && password.isNotEmpty()){
+                /*if(isEmail(email)){
+                    email.toUpperCase()
+                }*/
+
+                if(email.isEmail()){
+                    
+                }
                 if(email.contentEquals("abc@iqra.edu.pk") && password.contentEquals("123456")){
                     /*val intent = Intent(this@MainActivity, HomeActivity::class.java)
                     startActivity(intent)
                     finish()*/
 
+                    val userProfile = UserProfile("Mr. Ahmed",email,"0333-9090990")
+
                     Intent(this@MainActivity, HomeActivity::class.java).apply {
-                        putExtra("email",email)
+                        //putExtra("email",email)
+                        putExtra("profile",userProfile)
                         startActivity(this)
                         finish()
                     }
@@ -51,5 +65,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
     }
 }

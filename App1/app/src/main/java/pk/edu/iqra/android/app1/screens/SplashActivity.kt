@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import pk.edu.iqra.android.app1.MainActivity
 import pk.edu.iqra.android.app1.R
 
 class SplashActivity : AppCompatActivity() {
@@ -21,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         runnable = Runnable {
-            Intent(this@SplashActivity,MainActivity::class.java).apply {
+            Intent(this@SplashActivity, MainActivity::class.java).apply {
                 startActivity(this)
                 finish()
             }
