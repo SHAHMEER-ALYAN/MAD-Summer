@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="splash_screen_background" format="color"/>
+    <attr name="splash_screen_heading_color" format="color"/>
+    <attr name="splash_screen_footer_text_color" format="color"/>
+    <attr name="splash_heading_text_size" format="dimension"/>
+</resources>

@@ -13,6 +13,6 @@
     <string name="tx_mesg">Are you sure? you want to logout?</string>
     <string name="tx_yes">Yes</string>
     <string name="tx_no">No</string>
-    <string name="tx_splash">Splash Screen</string>
-    <string name="tx_powered_by">App by Iqra</string>
+    <string name="tx_splash">Écran de démarrage</string>
+    <string name="tx_powered_by">Application par Iqra</string>
 </resources>

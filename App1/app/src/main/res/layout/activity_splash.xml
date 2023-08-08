@@ -4,21 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.SplashActivity">
+    tools:context=".screens.SplashActivity"
+    android:background="?attr/splash_screen_background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:text="App by Iqra"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:text="@string/tx_powered_by"
+        android:textSize="@dimen/splash_footer_text_size" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Splash Screen"
+        android:text="@string/tx_splash"
         android:layout_centerInParent="true"
         android:textColor="@color/black"
-        android:textSize="22dp"/>
+        android:textSize="?attr/splash_heading_text_size"
+        android:onClick="onThemeChanged"/>
 </RelativeLayout>

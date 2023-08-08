@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screen_background">#FDF2F2</color>
     <color name="hint_color">#DCD9D9</color>
+    <color name="splash_bg_theme1">#E3BCBC</color>
+    <color name="splash_bg_theme2">#B1BCF8</color>
+    <color name="splash_bg_themePK">#7AE3F1</color>
+    <color name="splash_bg_themeFR">#F8EE93</color>
 </resources>
