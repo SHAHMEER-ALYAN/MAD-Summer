@@ -45,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
         }*/
 
 
-        //handler.postDelayed(runnable,2000)
+        handler.postDelayed(runnable,2000)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -60,13 +60,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun onThemeChanged(view: View) {
-        isPKTheme = !isPKTheme
+        /*isPKTheme = !isPKTheme
         DataProvider.isPKTheme = isPKTheme
         Intent(this@SplashActivity,SplashActivity::class.java).apply {
             //putExtra("isPKTheme", isPKTheme)
             startActivity(this)
             finish()
-        }
+        }*/
     }
 
     /* class Sample(val a:String, val b:String){

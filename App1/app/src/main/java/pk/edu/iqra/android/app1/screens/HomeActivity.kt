@@ -9,13 +9,15 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import pk.edu.iqra.android.app1.R
 import pk.edu.iqra.android.app1.models.UserProfile
+import pk.edu.iqra.android.app1.utils.PrefManager
 
 class HomeActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var edWelcome:TextView
+    lateinit var prefManager: PrefManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        prefManager = PrefManager(this)
         edWelcome = findViewById(R.id.txWelcome)
 
         //val email = intent.extras?.getString("email")
@@ -36,7 +38,8 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
 
         //findViewById<Button>(R.id.btnLogout).setOnClickListener(this)
 
-        findViewById<Button>(R.id.btnLogout).setOnClickListener(ClickHandler(this))
+        findViewById<Button>(R.id.btnLogout).setOnClickListener(this)
+        findViewById<Button>(R.id.btnProducts).setOnClickListener(this)
     }
 
     override fun onBackPressed() {
@@ -44,7 +47,10 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-        logout()
+        when(p0?.id){
+            R.id.btnLogout->logout()
+            R.id.btnProducts-> goToProductScreen()
+        }
     }
     public fun logout(){
         AlertDialog
@@ -53,6 +59,8 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
             .setMessage(resources.getString(R.string.tx_mesg))
             .setCancelable(false)
             .setPositiveButton(resources.getString(R.string.tx_yes)) { dialog, i ->
+                prefManager.clearData()
+
                 Intent(this@HomeActivity, MainActivity::class.java).apply {
                     startActivity(this)
                     finish()
@@ -68,6 +76,11 @@ class HomeActivity : AppCompatActivity(),View.OnClickListener {
     /*fun onLogoutClicked(view: View) {
         logout()
     }*/
+    private fun goToProductScreen(){
+        Intent(this@HomeActivity,ProductsActivity::class.java).apply {
+            startActivity(this)
+        }
+    }
 
     class ClickHandler(var homeActivity: HomeActivity):View.OnClickListener {
         override fun onClick(p0: View?) {
