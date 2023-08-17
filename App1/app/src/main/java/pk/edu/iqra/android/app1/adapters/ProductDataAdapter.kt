@@ -1,10 +1,11 @@
-package pk.edu.iqra.android.app1
+package pk.edu.iqra.android.app1.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import pk.edu.iqra.android.app1.R
 import pk.edu.iqra.android.app1.database.entites.Product
 
 class ProductDataAdapter(var products:List<Product>):RecyclerView.Adapter<ProductDataAdapter.ProductDataVH>() {
@@ -13,6 +14,10 @@ class ProductDataAdapter(var products:List<Product>):RecyclerView.Adapter<Produc
         val txProdName = view.findViewById<TextView>(R.id.txProdName)
         val txProdCategory = view.findViewById<TextView>(R.id.txProdCategory)
         val txProdPrice = view.findViewById<TextView>(R.id.txProdPrice)
+    }
+
+    public fun setUpdatedList(products:List<Product>){
+        this.products = products
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductDataVH {

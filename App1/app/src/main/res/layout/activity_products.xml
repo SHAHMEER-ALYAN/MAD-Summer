@@ -7,10 +7,18 @@
     android:orientation="vertical"
     tools:context=".screens.ProductsActivity">
 
+    <Button
+        android:id="@+id/btnAddProd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="Add Product"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProducts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        app:reverseLayout="true"/>
 </LinearLayout>
